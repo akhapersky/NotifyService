@@ -6,7 +6,9 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class NotifyBot extends TelegramLongPollingBot {
 
-    public static void main(String[] args) {
+    static String botName;
+    static String token;
+    public void init() {
         ApiContextInitializer.init(); // Инициализируем апи
         TelegramBotsApi botapi = new TelegramBotsApi();
         try {
@@ -22,11 +24,11 @@ public class NotifyBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "Family Notification Bot";
+        return botName;
     }
 
     @Override
     public String getBotToken() {
-        return "1010061028:AAF3VUXeu9SDoPxWUIhRdBiNN1dIkeYhNLE";
+        return token;
     }
 }

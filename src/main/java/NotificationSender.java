@@ -4,10 +4,8 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class NotificationSender {
-    final static  String username = "notifyappservice@gmail.com";
-    final static  String password = "poiupoiu1";
 
-    public static void sender(String result) {
+    public static void sender(String result, String username, String password, String addressList) {
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", "587");
@@ -27,7 +25,7 @@ public class NotificationSender {
             message.setFrom(new InternetAddress("from@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("khapanser@gmail.com, notifyappservice@gmail.com")
+                    InternetAddress.parse(addressList)
             );
             message.setSubject("Testing Gmail TLS");
             message.setText("Dear Mail Crawler,"
